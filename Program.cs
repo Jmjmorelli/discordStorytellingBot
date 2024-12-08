@@ -4,30 +4,32 @@ using Discord;
 using Discord.WebSocket;
 using System.IO;
 
-string token = File.ReadAllText(".env").Trim();
-
-
 namespace discordStorytellingBot
 {
     class Program
     {
-        private required DiscordSocketClient _client;
+        private DiscordSocketClient _client;
+        private string token;
 
         static async Task Main(string[] args)
         {
             await new Program().RunBotAsync();
         }
-        public async Task RunBotAsync()
+
+        public Program()
         {
-            // Define the configuration for the DiscordSocketClient
+            // Initialize the token and client in the constructor
+            token = File.ReadAllText(".env").Trim();
             var config = new DiscordSocketConfig
             {
-                GatewayIntents = GatewayIntents.Guilds | GatewayIntents.GuildMessages
+                GatewayIntents = GatewayIntents.Guilds | GatewayIntents.GuildMessages | GatewayIntents.MessageContent
             };
-
-            // Pass the configuration when creating the client
             _client = new DiscordSocketClient(config);
 
+        }
+
+        public async Task RunBotAsync()
+        {
             // Log client activities
             _client.Log += Log;
 
@@ -42,7 +44,6 @@ namespace discordStorytellingBot
             await Task.Delay(-1);
         }
 
-
         private Task Log(LogMessage log)
         {
             Console.WriteLine(log.ToString());
@@ -51,12 +52,25 @@ namespace discordStorytellingBot
 
         private async Task HandleMessageReceived(SocketMessage message)
         {
+            // Log the message for debugging
+            // Console.WriteLine($"Received message from {message.Author.Username}: {message.Content}");
+
+            // Ignore bot messages
             if (message.Author.IsBot) return;
 
+            // Respond to any message (for debugging)
+            if (!string.IsNullOrWhiteSpace(message.Content))
+            {
+                await message.Channel.SendMessageAsync("Hello! I received your message.");
+            }
+
+            // Respond to "!ping"
             if (message.Content == "!ping")
             {
                 await message.Channel.SendMessageAsync("Pong!");
             }
         }
+
+
     }
 }
