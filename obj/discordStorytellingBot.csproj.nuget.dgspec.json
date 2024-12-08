@@ -47,6 +47,10 @@
             "Discord.Net": {
               "target": "Package",
               "version": "[3.16.0, )"
+            },
+            "OpenAI": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             }
           },
           "imports": [

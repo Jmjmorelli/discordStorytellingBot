@@ -27,3 +27,6 @@ C:\Users\jvgmo\Documents\GitHub\discordStorytellingBot\obj\Debug\net9.0\refint\d
 C:\Users\jvgmo\Documents\GitHub\discordStorytellingBot\obj\Debug\net9.0\discordStorytellingBot.pdb
 C:\Users\jvgmo\Documents\GitHub\discordStorytellingBot\obj\Debug\net9.0\discordStorytellingBot.genruntimeconfig.cache
 C:\Users\jvgmo\Documents\GitHub\discordStorytellingBot\obj\Debug\net9.0\ref\discordStorytellingBot.dll
+C:\Users\jvgmo\Documents\GitHub\discordStorytellingBot\bin\Debug\net9.0\OpenAI.dll
+C:\Users\jvgmo\Documents\GitHub\discordStorytellingBot\bin\Debug\net9.0\System.ClientModel.dll
+C:\Users\jvgmo\Documents\GitHub\discordStorytellingBot\bin\Debug\net9.0\System.Memory.Data.dll
